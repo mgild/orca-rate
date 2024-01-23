@@ -17,21 +17,20 @@ async fn main() {
     dotenv::dotenv().ok();
     let rpc_url = env::var("RPC_URL").expect("RPC_URL not set in .env");
 
-    // Initialize variables
-    let orca_whirepool_id = get_pubkey(ORCA_WHIRLPOOL_ID);
-    let whirlpool_config_id = get_pubkey(WHIRLPOOL_CONFIG_ID);
-    let rpc_client = RpcClient::new_with_commitment(rpc_url, CommitmentConfig::confirmed());
-
     // Suppose to get quote from SOL to USDC as 1 SOL
     let mint_in = get_pubkey(SOL_MINT);
     let decimals_in = Decimal::from(pow(10, SOL_DECIMALS));
     let mint_out = get_pubkey(BONK_MINT);
     let decimals_out = Decimal::from(pow(10, BONK_DECIMALS));
-
     let input_amount: f64 = 1.0;
     println!("Input token: {}", mint_in);
     println!("Input amount: {}", input_amount);
     println!("Output token: {}", mint_out);
+
+    // Initialize variables
+    let orca_whirepool_id = get_pubkey(ORCA_WHIRLPOOL_ID);
+    let whirlpool_config_id = get_pubkey(WHIRLPOOL_CONFIG_ID);
+    let rpc_client = RpcClient::new_with_commitment(rpc_url, CommitmentConfig::confirmed());
 
     // Get whirepool pda from token pair
     let whirlpool_pda = get_whirlpool_pda(
