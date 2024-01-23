@@ -1,0 +1,23 @@
+[package]
+name = "orca-rate"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15"
+anyhow = "1.0"
+tokio = { version = "1", features = ["full"] }
+bytemuck = { version = "1.4.0" }
+rust_decimal = "1.33.1"
+num-traits = "0.2.17"
+
+solana-program = "=1.14.12"
+solana-client = "1.14.12"
+solana-sdk = "1.14.12"
+solana-account-decoder = "1.14.12"
+anchor-lang = "0.26"
+borsh = "0.9.1"
+mpl-token-metadata = { version = "=1.7", features = ["no-entrypoint"] }
+whirlpool = { git = "https://github.com/orca-so/whirlpools", branch = "main", package = "whirlpool", features = ["cpi"] }
