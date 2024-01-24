@@ -2212,6 +2212,7 @@ dependencies = [
  "mpl-token-metadata",
  "num-traits",
  "rust_decimal",
+ "serde",
  "solana-account-decoder",
  "solana-client",
  "solana-program",

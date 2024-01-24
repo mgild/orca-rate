@@ -1,5 +1,7 @@
-pub mod parser;
-pub mod swap;
+pub mod rpc;
+pub mod whirlpool;
+pub mod legacy;
 
-pub use parser::*;
-pub use swap::*;
+pub use rpc::*;
+pub use whirlpool::*;
+pub use legacy::*;

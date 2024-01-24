@@ -4,7 +4,7 @@ use solana_client::nonblocking::rpc_client::RpcClient;
 use solana_sdk::pubkey::Pubkey;
 use whirlpool::state::{TickArray, Whirlpool};
 
-pub async fn parse_whirlpool_account(
+pub async fn fetch_whirlpool_account(
     rpc_client: &RpcClient,
     pda: Pubkey,
 ) -> anyhow::Result<Whirlpool> {
@@ -13,7 +13,7 @@ pub async fn parse_whirlpool_account(
     Ok(whirlpool)
 }
 
-pub async fn parse_tick_arrays(
+pub async fn fetch_tick_arrays(
     rpc_client: &RpcClient,
     keys: Vec<Pubkey>,
 ) -> anyhow::Result<Vec<TickArray>> {
@@ -27,4 +27,9 @@ pub async fn parse_tick_arrays(
     });
 
     Ok(tick_arrays)
+}
+
+pub async fn fetch_mint_decimals(rpc_client: &RpcClient, mint: Pubkey) -> anyhow::Result<u8> {
+    let data = rpc_client.get_account_data(&mint).await?;
+    Ok(data[44])
 }

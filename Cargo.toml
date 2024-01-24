@@ -21,3 +21,4 @@ anchor-lang = "0.26"
 borsh = "0.9.1"
 mpl-token-metadata = { version = "=1.7", features = ["no-entrypoint"] }
 whirlpool = { git = "https://github.com/orca-so/whirlpools", branch = "main", package = "whirlpool", features = ["cpi"] }
+serde = "1.0.195"
